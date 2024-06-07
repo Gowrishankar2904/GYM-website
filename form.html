@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        .h1 {
+            color: rgb(251, 251, 252);
+            float: left;
+            font-size: 15px;
+        }
+
+        .sg {
+            font-size: 15px;
+            padding-top: 18px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .lg {
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-bottom: 5px;
+        }
+
+        body {
+            background-color: #030303;
+        }
+
+
+        a {
+            color: rgb(5, 6, 6);
+        }
+
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.233);
+        }
+
+        article {
+            color: aliceblue;
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: black;
+        }
+
+        .heading h1 {
+            color: #fefefe;
+            text-align: center;
+            margin-top: 35px;
+            font-size: 55px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: 65px auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            width: 600px;
+            margin: 0px 25px;
+        }
+
+        .hero-content h2 {
+            color: bisque;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .hero-content button {
+            display: inline-block;
+            background-color: aliceblue;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .hero-content button:hover {
+            background-color: rgb(90, 76, 67);
+            color: #fefefe;
+        }
+
+        .mm {
+            padding: 80px;
+
+        }
+
+        .hero-image {
+            flex: 1;
+            width: 800px;
+            margin: 50px;
+            /* border: 5px solid bisque; */
+        }
+
+        .d1 {
+            text-align: center;
+        }
+
+        .cont {
+            color: #666;
+        }
+
+        .main {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .icon {
+            text-align: left;
+        }
+
+        .choseus-aside {
+            background: #f36100;
+            padding: 10px;
+        }
+
+        .cs-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .cs-item:hover span {
+            background: #71f300;
+            color: #ffffff;
+        }
+
+        .cs-item span {
+            height: 90px;
+            width: 90px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: inline-block;
+            color: #71f300;
+            line-height: 90px;
+            text-align: center;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .cs-item h4 {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .heading h1 {
+                font-size: 45px;
+                margin-top: 30px;
+            }
+
+            .hero {
+                margin: 0px;
+            }
+
+            .container {
+                width: 100%;
+                flex-direction: column;
+                margin: 0px;
+                padding: 0px 40px;
+            }
+
+            .hero-content {
+                width: 100%;
+                margin: 35px 0px;
+            }
+
+            .hero-content h2 {
+                font-size: 30px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+
+            .hero-content button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+
+            .hero-image {
+                width: auto;
+            }
+
+            .cons {
+                padding: 5px;
+                width: 200px;
+            }
+
+            .mm {
+                width: 50px;
+                right: 100px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav navbar-inverse n">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left lg">
+                <li><img src="./img/44DpIkbEsTXkw (1).png" height="50px" class="h1"></li>
+                <li><a href="" class="h1">GYMNASTICS</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right sg">
+                <li><a href="./home.html">HOME</a></li>
+                <li><a href="./form.html">ABOUT US</a></li>
+                <li><a href="./a.html">REGISTER</a></li>
+                <li><a href="./end.html">CLASSES</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container-fluid main">
+            <img src="./img/heros.jpg" width="100%" height="400px">
+        </div>
+        <div class="heading">
+            <h1>ABOUT US</h1>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h2>WELCOME TO OUR GYMNASTICS</h2>
+                <p style="text-align: justify;">It is very important to go to the gym only for yourself, to become
+                    healthy and strong, to have a
+                    healthy mind in a
+                    healthy body, and not to just show your body to other people, no matter how beautiful it looks. To
+                    sum up, there are
+                    different lively public places, where people go to achieve their goals.</p>
+                <button class="cta-button">Learn More</button>
+            </div>
+            <div class="hero-image">
+                <img src="./img/abc.jpg" alt="">
+            </div>
+        </div>
+        <aside class="choseus-aside spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 style="color:#010101">
+                            <center>PUSH YOUR LIMITS FORWARD</center>
+                        </h1>
+                    </div><br><br>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="cs-item">
+                                <span class="flaticon-034-stationary-bike"><img
+                                        src="./img/glyphicons-basic-394-dumbbell@2x.png" alt=""></span>
+                                <h4>Modern equipment</h4>
+                                <p style="color:#060606">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do
+                                    eiusmod tempor incididunt
+                                    ut
+                                    dolore facilisis.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="cs-item">
+                                <span class="flaticon-033-juice"><img src="./img/glyphicons-basic-278-cutlery@2x.png"
+                                        alt=""></span>
+                                <h4>Healthy nutrition plan</h4>
+                                <p style="color:#060606">Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                    viverra
+                                    maecenas accumsan lacus
+                                    vel
+                                    facilisis.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="cs-item">
+                                <span class="flaticon-002-dumbell"><img
+                                        src="./img/glyphicons-basic-734-kettlebell@2x.png" alt=""></span>
+                                <h4>Proffesonal training</h4>
+                                <p style="color:#030303">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do
+                                    eiusmod tempor incididunt
+                                    ut
+                                    dolore facilisis.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="cs-item">
+                                <span class="flaticon-014-heart-beat"><img src="./img/glyphicons-basic-51-pulse@2x.png"
+                                        alt=""></span>
+                                <h4>Unique to your needs</h4>
+                                <p style="color:#060606;">Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                    viverra
+                                    maecenas accumsan lacus
+                                    vel
+                                    facilisis.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </aside>
+
+        <div class="container cont" style="overflow: hidden;">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+
+                        <img src="./img/team1.png" height="300px" width="100%">
+                        <div class="caption">
+                            <p>SAM</p>
+                            <p>PERSONAL TRAINER</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+
+                        <img src="./img/team2.png" height="300px" width="100%">
+                        <div class="caption">
+                            <p>THOR</p>
+                            <p>PERSONAL TRAINER</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="thumbnail">
+
+                        <img src="./img/Ladies-Fitness-Personal-Trainer-In-Dubai-Shiblin-e16470104426478.jpg"
+                            height="300px" width="100%">
+                        <div class="caption">
+                            <p>THARA</p>
+                            <p>PERSONAL TRAINER</p>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <section style="background-color: #f36100;">
+        <div class="container cons">
+            <div class="p2 row cons">
+                <div class="col-sm-6 cons">
+                    <h1 style=" color: #fefefe;"><b>Why GYMNASTICS</b></h1>
+                    <hr class="cons"
+                        style="height:15px;width:550px; color:rgb(128, 0, 0);background-color:rgb(128, 0, 0)">
+                    <ul class="pa1 cons" style="font-size: 18px; list-style: none;">
+
+
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Feel More Energized</li>
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Burn More Calories at Rest</li>
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Improve Overall Appearance</li>
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Be Able to Withstand Stress
+                        </li>
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Decrease Risk of Illness</li>
+                        <li><span class="glyphicon glyphicon-ok" aria-hidden="true"
+                                style="color:rgb(32,13,77);"></span>Build Up Cardiovascular Endurancen</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 mm">
+                    <img src="./img/abd.jpg">
+
+                </div>
+            </div>
+        </div>
+    </section><br><br>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">QUICK LINKS</h2>
+                            <a href="./home.html">HOME</a><br>
+                            <a href="./form.html">ABOUT US</a><br>
+                            <a href="./a.html">REGISTER</a><br>
+                            <a href="./end.html">CLASSES</a><br>
+                            <a href="./contact.html">CONTACT</a><br>
+                        </div>
+                    </center>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <center class="icon">
+                        <div>
+                            <h2 style="color:sandybrown">ADDRESS</h2>
+                            <a href="">2/114</a><br>
+                            <a href="">FIRST FLOOR</a><br>
+                            <a href="">GANDHIPURAM</a><br>
+                            <a href="">COIMBATORE</a><br>
+                            <a href="">641010</a><br>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">CONTACT</h2>
+                            <a href=""><img src="./img/phone.svg" alt=""> PHONE</a><br>
+                            <a href=""><img src="./img/instagram.svg"> INSTAGRAM</a><br>
+                            <a href=""><img src="./img/twitter.svg" alt=""> TWITTER</a><br>
+                            <a href=""><img src="./img/facebook.svg" alt=""> FACEBOOK</a><br>
+                            <a href=""><img src="./img/whatsapp.svg" alt=""> WHATSAPP</a><br>
+                        </div>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

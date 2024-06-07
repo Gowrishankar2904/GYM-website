@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        .h1 {
+            color: rgb(251, 251, 252);
+            float: left;
+            font-size: 15px;
+        }
+
+        .sg {
+            font-size: 15px;
+            padding-top: 18px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .lg {
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-bottom: 5px;
+        }
+
+        body {
+            background-color: #030303;
+        }
+
+
+        a {
+            color: rgb(5, 6, 6);
+        }
+
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.233);
+        }
+
+        .icon {
+            text-align: left;
+        }
+
+        .class-timetable-section {
+            background: #151515;
+        }
+
+        .class-timetable-section.class-details-timetable {
+            padding-top: 0;
+        }
+
+        .class-timetable-section .section-title {
+            text-align: left;
+        }
+
+        .class-details-timetable_title {
+            margin-bottom: 35px;
+        }
+
+        .class-details-timetable_title h5 {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .table-controls {
+            text-align: right;
+            margin-top: 14px;
+            margin-bottom: 50px;
+        }
+
+        .table-controls ul {
+            background: #000000;
+            padding: 12px 30px 15px;
+            display: inline-block;
+        }
+
+        .table-controls ul li {
+            list-style: none;
+            font-size: 14px;
+            color: #aaaaaa;
+            list-style: none;
+            display: inline-block;
+            margin-right: 35px;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .table-controls ul li:after {
+            position: absolute;
+            right: -22px;
+            top: 0;
+            content: "/";
+        }
+
+        .table-controls ul li.active {
+            color: #ffffff;
+        }
+
+        .table-controls ul li.active:after {
+            color: #aaaaaa;
+        }
+
+        .table-controls ul li:last-child {
+            margin-right: 0;
+        }
+
+        .table-controls ul li:last-child:after {
+            display: none;
+        }
+
+        .class-timetable .ts-meta h5,
+        .class-timetable .ts-meta span {
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+
+        .class-timetable.filtering .ts-meta h5,
+        .class-timetable.filtering .ts-meta span {
+            opacity: 0;
+        }
+
+        .class-timetable.filtering .ts-meta.show h5,
+        .class-timetable.filtering .ts-meta.show span {
+            opacity: 1;
+        }
+
+        .class-timetable.details-timetable td h5 {
+            color: #ffffff1a;
+        }
+
+        .class-timetable.details-timetable td span {
+            color: #363636;
+        }
+
+        .class-timetable.details-timetable td.hover-dp h5 {
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+
+        .class-timetable.details-timetable td.hover-dp span {
+            -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+        }
+
+        .class-timetable.details-timetable td.hover-dp:hover h5 {
+            color: #ffffff;
+        }
+
+        .class-timetable.details-timetable td.hover-dp:hover span {
+            color: #a9a9a9;
+        }
+
+        .class-timetable.details-timetable td.dark-bg {
+            background: #0a0a0a;
+        }
+
+        .class-timetable table {
+            border: 1px solid #363636;
+            text-align: center;
+        }
+
+        .class-timetable table thead {
+            border-bottom: 1px solid #363636;
+        }
+
+        .class-timetable table thead tr th {
+            font-size: 14px;
+            color: #ffffff;
+            background: #f36100;
+            border-right: 1px solid #363636;
+            padding: 15px 0;
+            font-weight: 400;
+        }
+
+        .class-timetable table tbody tr td {
+            width: 146px;
+            padding: 35px 0;
+        }
+
+        .class-timetable table tbody tr td.class-time {
+            font-size: 12px;
+            color: #f36100;
+            background: #000000;
+            border: 1px solid #363636;
+        }
+
+        .class-timetable table tbody tr td.dark-bg {
+            background: #090909;
+        }
+
+        .class-timetable table tbody tr td.hover-bg {
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .class-timetable table tbody tr td.hover-bg:hover {
+            background: #f36100;
+        }
+
+        .class-timetable table tbody tr td.blank-td {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .class-timetable table tbody tr td.blank-td:after {
+            position: absolute;
+            left: -47px;
+            top: 59px;
+            width: 237px;
+            height: 1px;
+            background: #363636;
+            content: "";
+            -webkit-transform: rotate(-40deg);
+            -ms-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+        }
+
+        .class-timetable table tbody tr td h5 {
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+
+
+        .class-timetable table tbody tr td span {
+            display: block;
+            font-size: 12px;
+            color: #a9a9a9;
+        }
+
+        .main {
+            margin: 0px;
+            padding: 0px;
+            padding-bottom: 5px;
+        }
+
+        .about-video {
+            height: 640px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+
+        }
+
+        .about-video .play-btn {
+            display: inline-block;
+            height: 70px;
+            width: 70px;
+            background: #f36100;
+            border-radius: 50%;
+            line-height: 70px;
+            text-align: center;
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        .about-text {
+            background: #000000;
+            height: 640px;
+            padding: 120px 70px 0 70px;
+        }
+
+        .about-text .section-title {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .about-text .at-desc {
+            margin-bottom: 27px;
+        }
+
+        .about-text .at-desc p {
+            color: #c4c4c4;
+        }
+
+        .about-text .about-bar .ab-item {
+            margin-bottom: 34px;
+        }
+
+        .about-text .about-bar .ab-item p {
+            color: #f36100;
+            margin-bottom: 13px;
+        }
+
+        .about-text .about-bar .ab-item .barfiller {
+            background: #f8f7f7;
+            height: 5px;
+            border: none;
+            margin-bottom: 0;
+        }
+
+        .about-text .about-bar .ab-item .barfiller .tip {
+            margin-top: 0;
+            padding: 0;
+            font-size: 14px;
+            color: #f8f6f6;
+            background: transparent;
+            position: initial !important;
+            float: right;
+            margin-top: -40px;
+        }
+
+        .about-text .about-bar .ab-item .barfiller .tip:after {
+            display: none;
+        }
+
+
+        .mainn {
+            background-image: url(./img/HD-wallpaper-sports-weightlifting-bodybuilder-gym-man-muscle.jpg);
+        }
+
+        @media screen and (max-width: 768px) {
+            .class-timetable-section {
+                width: 500px;
+            }
+
+            .class-details-timetable_title {
+                width: 500px;
+            }
+
+            .class-timetable-section.class-details-timetable {
+                width: 100%;
+            }
+
+            .class-timetable {
+                overflow-x: auto;
+            }
+
+            .mm {
+                padding-right: 250px;
+            }
+
+            .about-text {
+                background: #000000;
+                height: 900px;
+                width: 300px;
+                left: -300px;
+
+            }
+
+            .about-text .section-title {
+                text-align: left;
+                left: 300px;
+            }
+
+            /* .prog {
+                width: 300px;
+                height: 10px;
+            }*/
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav navbar-inverse n">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left lg">
+                <li><img src="./img/44DpIkbEsTXkw (1).png" height="50px" class="h1"></li>
+                <li><a href="" class="h1">GYMNASTICS</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right sg">
+                <li><a href="./home.html">HOME</a></li>
+                <li><a href="./form.html">ABOUT US</a></li>
+                <li><a href="./a.html">REGISTER</a></li>
+                <li><a href="./end.html">CLASSES</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid main">
+        <img src="./img/New folder/home-bg-2.jpg" width="100%" height="400px">
+    </div>
+    <hr style="color:#ff6a07">
+
+    <section class="aboutus-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                    <div class="about-video thumbnail mainn" img src="./abd.jpg" alt="Slate Bootstrap Admin Theme">
+                        <a href="https://youtu.be/_x1i1hTFme0" class="play-btn video-popup">
+                            <i class="fa fa-caret-right"><img src="./img/caret-right-fill.svg" alt="">
+                            </i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 p-0 prog">
+                    <div class="about-text prog">
+                        <div class="section-title prog">
+                            <span>
+                                <h1 style="color:rgb(253, 251, 251)">LET SWEAT</h1>
+                            </span>
+                            <h2 style="color: #f36100;">What we have done</h2>
+                        </div>
+                        <div class="at-desc prog">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
+                                viverra maecenas accumsan lacus vel facilisis. aliquip ex ea commodo consequat sit amet,
+                                consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                        </div>
+                        <div class="about-bar">
+                            <div class="ab-item">
+                                <p>Body building</p>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                                        style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ab-item">
+                                <p>Training</p>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-warning" role="progressbar"
+                                        style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ab-item">
+                                <p>Fitness</p>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                        role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                                        style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+
+    <section class="class-timetable-section class-details-timetable spad container" style="overflow: hidden;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="class-details-timetable_title mm">
+                        <h5>
+                            <center>CLASSES TIMETABLE</center>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="class-timetable details-timetable table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                    <th>Sunday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="class-time">6.00am - 8.00am</td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>WEIGHT LOOSE</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Cardio</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Yoga</h5>
+                                        <span>Keaf Shen</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Fitness</h5>
+                                        <span>Kimberly Stone</span>
+                                    </td>
+                                    <td class="dark-bg blank-td"></td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Boxing</h5>
+                                        <span>Rachel Adam</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Body Building</h5>
+                                        <span>Robert Cage</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="class-time">10.00am - 12.00am</td>
+                                    <td class="blank-td"></td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Fitness</h5>
+                                        <span>Kimberly Stone</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>WEIGHT LOOSE</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Cardio</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Body Building</h5>
+                                        <span>Robert Cage</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Karate</h5>
+                                        <span>Donald Grey</span>
+                                    </td>
+                                    <td class="blank-td"></td>
+                                </tr>
+                                <tr>
+                                    <td class="class-time">5.00pm - 7.00pm</td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Boxing</h5>
+                                        <span>Rachel Adam</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Karate</h5>
+                                        <span>Donald Grey</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Body Building</h5>
+                                        <span>Robert Cage</span>
+                                    </td>
+                                    <td class="blank-td"></td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Yoga</h5>
+                                        <span>Keaf Shen</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Cardio</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Fitness</h5>
+                                        <span>Kimberly Stone</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="class-time">7.00pm - 9.00pm</td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Cardio</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                    <td class="dark-bg blank-td"></td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Boxing</h5>
+                                        <span>Rachel Adam</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>Yoga</h5>
+                                        <span>Keaf Shen</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="motivation">
+                                        <h5>Karate</h5>
+                                        <span>Donald Grey</span>
+                                    </td>
+                                    <td class="dark-bg hover-dp ts-meta" data-tsmeta="fitness">
+                                        <h5>Boxing</h5>
+                                        <span>Rachel Adam</span>
+                                    </td>
+                                    <td class="hover-dp ts-meta" data-tsmeta="workout">
+                                        <h5>WEIGHT LOOSE</h5>
+                                        <span>RLefew D. Loee</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">QUICK LINKS</h2>
+                            <a href="./home.html">HOME</a><br>
+                            <a href="./form.html">ABOUT US</a><br>
+                            <a href="./a.html">REGISTER</a><br>
+                            <a href="./end.html">CLASSES</a><br>
+                            <a href="./contact.html">CONTACT</a><br>
+                        </div>
+                    </center>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">ADDRESS</h2>
+                            <a href="">2/114</a><br>
+                            <a href="">FIRST FLOOR</a><br>
+                            <a href="">GANDHIPURAM</a><br>
+                            <a href="">COIMBATORE</a><br>
+                            <a href="">641010</a><br>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="col-lg-4" style="display: inline;">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">CONTACT</h2>
+                            <a href=""><img src="./img/phone.svg" alt=""> PHONE</a><br>
+                            <a href=""><img src="./img/instagram.svg"> INSTAGRAM</a><br>
+                            <a href=""><img src="./img/twitter.svg" alt=""> TWITTER</a><br>
+                            <a href=""><img src="./img/facebook.svg" alt=""> FACEBOOK</a><br>
+                            <a href=""><img src="./img/whatsapp.svg" alt=""> WHATSAPP</a><br>
+                        </div>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

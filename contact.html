@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .h1 {
+            color: rgb(251, 251, 252);
+            float: left;
+            font-size: 15px;
+        }
+
+        .sg {
+            font-size: 15px;
+            padding-top: 18px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .lg {
+            font-size: 25px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding-bottom: 5px;
+        }
+
+        body {
+            background-color: #030303;
+        }
+
+
+        a {
+            color: rgb(5, 6, 6);
+        }
+
+
+        section {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.233);
+        }
+
+        .img {
+            height: 300px;
+            width: 200px;
+        }
+
+        .sec {
+            border: 6px solid black;
+        }
+
+
+        .img2 {
+            padding-top: -600px;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.233);
+        }
+
+        .icon {
+            text-align: left;
+            color: #fff;
+        }
+
+        .contact-section {
+            background: #030000;
+            left: 200px;
+        }
+
+        .section-title.contact-title {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .contact-widget .cw-text {
+            overflow: hidden;
+            margin-bottom: 35px;
+
+        }
+
+        .contact-widget .cw-text i {
+            font-size: 30px;
+            color: #f36100;
+            display: inline-block;
+            height: 65px;
+            width: 65px;
+            background: #faf9f9;
+            border-radius: 50%;
+            line-height: 65px;
+            text-align: center;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .contact-widget .cw-text p {
+            overflow: hidden;
+            color: #c4c4c4;
+            margin-bottom: 0;
+            padding-top: 10px;
+        }
+
+        .contact-widget .cw-text ul {
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        .contact-widget .cw-text ul li {
+            list-style: none;
+            font-size: 14px;
+            color: #c4c4c4;
+            margin-right: 25px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .contact-widget .cw-text ul li:after {
+            position: absolute;
+            right: -18px;
+            top: 0;
+            content: "|";
+            color: #545454;
+        }
+
+        .contact-widget .cw-text ul li:last-child {
+            margin-right: 0;
+        }
+
+        .contact-widget .cw-text ul li:last-child:after {
+            display: none;
+        }
+
+        .contact-widget .cw-text.email p {
+            padding-top: 20px;
+        }
+
+        .img1 {
+            text-align: right;
+            width: 300px;
+            height: 100px;
+        }
+
+        #contact-us {
+            margin-top: 10px;
+            left: 300px;
+        }
+
+        #contact-us .container-fluid .col-lg-6 {
+            padding: 0px;
+        }
+
+        #contact-us .contact-form {
+            padding: 80px;
+            /* background-image: url(../images/contact-bg.jpg); */
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #contact-us .contact-form #contact {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            color: #7a7a7a;
+            font-size: 13px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            width: 100%;
+            height: 40px;
+            outline: none;
+            line-height: 40px;
+            padding: 0px 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin-bottom: 30px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-form ::-webkit-input-placeholder {
+            /* Edge */
+            color: #7a7a7a;
+        }
+
+        .contact-form :-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: #7a7a7a;
+        }
+
+        .contact-form ::placeholder {
+            color: #7a7a7a;
+        }
+
+        .contact-form button {
+            display: inline-block;
+            font-size: 13px;
+            padding: 11px 17px;
+            background-color: #ed563b;
+            color: #fff;
+            text-align: center;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: all .3s;
+            border: none;
+            outline: none;
+            margin-top: -8px;
+        }
+
+        .mm {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        .contact-form button:hover {
+            background-color: #f9735b;
+        }
+
+        .main {
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        .map iframe {
+            width: 100%;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .form {
+                width: 400px;
+                right: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav navbar-inverse n">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left lg">
+                <li><img src="./img/44DpIkbEsTXkw (1).png" height="50px" class="h1"></li>
+                <li><a href="" class="h1">GYMNASTICS</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right sg">
+                <li><a href="./home.html">HOME</a></li>
+                <li><a href="./form.html">ABOUT US</a></li>
+                <li><a href="./a.html">REGISTER</a></li>
+                <li><a href="./end.html">CLASSES</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid main">
+        <img src="./img/New folder/home-bg-1.jpg" width="100%" style="height: 400px;">
+    </div>
+    <section class="section" id="contact-us">
+        <div class="container-fluid">
+            <div class="col-lg-6">
+                <div class="section-title contact-title">
+                    <span style="color: #f36100;">Contact Us</span>
+                    <h2 style="color: #ed563b;">GET IN TOUCH</h2>
+                </div>
+                <div class="contact-widget">
+                    <div class="cw-text">
+                        <i class="fa fa-map-marker"><img src="./img/geo-alt.svg" alt=""></i>
+                        <p>2/114,first floor,GANDHIPURAM<br />cbe-641010</p>
+                    </div>
+                    <div class="cw-text">
+                        <i class="fa fa-mobile"><img src="./img/phone.svg" alt=""></i>
+                        <p>9876543211</p>
+                        <p>044-21242124</p>
+
+                    </div>
+                    <div class="cw-text email">
+                        <i class="fa fa-envelope"><img src="./img/envelope.svg" alt=""></i>
+                        <p>gymnastics@gmail.com</p>
+                    </div>
+                    <div class="cw-text email">
+                        <i class="fa fa-envelope"><img src="./img/facebook.svg" alt=""></i>
+                        <p>gymnastics.offl.page</p>
+                    </div>
+                    <div class="cw-text email">
+                        <i class="fa fa-envelope"><img src="./img/instagram.svg" alt=""></i>
+                        <p>gymnastics.offl</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12 form" style="background-color:#fbfbfb">
+                <div class="contact-form">
+                    <form id="contact" action="" method="post">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name*" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <fieldset>
+                                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
+                                        placeholder="Your Email*" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <fieldset>
+                                    <input name="subject" type="text" id="subject" placeholder="Subject">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="message" rows="6" id="message" placeholder="Message"
+                                        required=""></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="main-button">Send Message</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12087.069761554938!2d-74.2175599360452!3d40.767139456514954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c254b5958982c3%3A0xb6ab3931055a2612!2sEast%20Orange%2C%20NJ%2C%20USA!5e0!3m2!1sen!2sbd!4v1581710470843!5m2!1sen!2sbd"
+                height="550" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+    </section><br><br>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">QUICK LINKS</h2>
+                            <a href="./home.html">HOME</a><br>
+                            <a href="./about.html">ABOUT US</a><br>
+                            <a href="./form.html">REGISTER</a><br>
+                            <a href="./end.html">CLASSES</a><br>
+                            <a href="./contact.html">CONTACT</a><br>
+                        </div>
+                    </center>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">ADDRESS</h2>
+                            <a href="">2/114</a><br>
+                            <a href="">FIRST FLOOR</a><br>
+                            <a href="">GANDHIPURAM</a><br>
+                            <a href="">COIMBATORE</a><br>
+                            <a href="">641010</a><br>
+                        </div>
+                    </center>
+                </div>
+
+                <div class="col-lg-4" style="display: inline;">
+                    <center>
+                        <div class="icon">
+                            <h2 style="color:sandybrown">CONTACT</h2>
+                            <a href=""><img src="./img/phone.svg" alt=""> PHONE</a><br>
+                            <a href=""><img src="./img/instagram.svg"> INSTAGRAM</a><br>
+                            <a href=""><img src="./img/twitter.svg" alt=""> TWITTER</a><br>
+                            <a href=""><img src="./img/facebook.svg" alt=""> FACEBOOK</a><br>
+                            <a href=""><img src="./img/whatsapp.svg" alt=""> WHATSAPP</a><br>
+                        </div>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
